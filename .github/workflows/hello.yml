@@ -13,4 +13,4 @@ jobs:
   # ステップの定義
   steps:
    - run: echo "Hello, world"
- 
+   - run: actions/checkout@v4
