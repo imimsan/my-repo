@@ -1,17 +1,8 @@
 name: Manual
 on:
   workflow_dispatch:
-    inputs:
-      greeting:
-        type: choice
-        options:
-         - info
-         - warn
-         - error
-        required: true
-        description: A cheerful word
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{inputs.greeting}}"
+      - run: echo "${{github.actor}}"
