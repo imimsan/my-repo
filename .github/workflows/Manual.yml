@@ -1,8 +1,10 @@
 name: Manual
-on:
+on: 
   workflow_dispatch:
+env:
+  GLOBAL_VAR: 'This is a global variable'
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{github.actor}}"
+      - run: echo $GLOBAL_VAR
