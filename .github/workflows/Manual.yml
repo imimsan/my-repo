@@ -1,10 +1,8 @@
 name: Manual
 on: 
   workflow_dispatch:
-env:
-  GLOBAL_VAR: 'This is a global variable'
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $GLOBAL_VAR
+      - run: echo "${{ vars.USERNAME }}"
