@@ -1,12 +1,14 @@
-name: Manual
-on: 
-  workflow_dispatch:
+name: Literals
+on:
   push:
 jobs:
-  run:
+  print:
     runs-on: ubuntu-latest
-    env:
-      PASSWORD: ${{ secrets.PASSWORD }}
     steps:
-      - run: echo "${PASSWORD}"
-      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
+      - run: printenv | grep 'LLITERAL_'
+        env:
+          LITERAL_NULL: ${{ null }}
+          LITERAL_BOOLEAN: ${{ true }}
+          LITERAL_NUMBER: ${{ 1234 }}
+          LITERAL_STRING: ${{ 'HELLO' }}
+          LITERAL_OMIT_STRING: World
