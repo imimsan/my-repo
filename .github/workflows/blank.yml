@@ -1,15 +1,7 @@
-name: Manual
-on:
-  workflow_dispatch:
-    inputs:
-      env:
-        type: choice
-        options:
-          - debug
-          - staging
-          - release
+name: Contexts
+on: push
 jobs:
-  run:
-    runs-on: ubuntu-latest
+  print:
+  runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ inputs.env }}"
+      - run: echo "${{ github.actor }}"
