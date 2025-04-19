@@ -1,10 +1,10 @@
-name: Variables
-run-name: Test
-on: 
-  workflow_dispatch:
-jobs: 
-  skip-or-run:
+name: Status Check
+run-name: Status
+on: push
+jobs:
+  fail:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello"
-        if: ${{ contains(github.run_id, '1') }}
+      - run: exit 1
+      - if: ${{ failure() }}
+        run: echo "Hello"
