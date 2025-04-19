@@ -1,9 +1,9 @@
 name: Variables
+run-name: Test
 on: push
-jobs:
-  print:
+jobs: 
+  skip-or-run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${USERNAME}"
-        env:
-          USERNAME: ${{github.actor}}
+      - run: echo "Hello"
+        if: ${{ contains(github.run_id, '1') }}
