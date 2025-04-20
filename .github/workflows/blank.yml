@@ -1,10 +1,11 @@
-name: Status Check
-run-name: Status
+name: GITHUB_OUTPUT
 on: push
 jobs:
-  fail:
+  share:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
-      - if: ${{ failure() }}
-        run: echo "Hello"
+      - id: source
+        run: echo "result=Hello" >> "${GITHUB_OUTPUT}"
+      - env:
+          RESULT: ${{ steps.source.outputs.result }}
+        run: echo "${RESULT}"
