@@ -2,7 +2,7 @@ name: GITHUB_ENV
 on: push
 jobs:
   share:
-    runs-on: ubuntu-latestl
+    runs-on: ubuntu-latest
     steps:
       - run: echo "RESULT=hello" >> "${GITHUB_ENV}"
       - run: echo "${RESULT}"
