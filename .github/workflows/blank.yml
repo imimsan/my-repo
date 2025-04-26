@@ -1,13 +1,8 @@
-name: Comment
-on: pull_request
+name: Missing share data
+on: push
 jobs:
-  comment:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
+  share:
+    runs-on:
     steps:
-      - uses: actions/checkout@v4
-      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: export RESULT="hello"
+      - run: echo "${RESULT}"
