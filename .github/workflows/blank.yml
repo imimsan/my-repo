@@ -1,11 +1,13 @@
-name: Comment
-on: push
+name: Test
+on:
+  pull_request:
+    paths: ['go/**/*.go']
 jobs:
-  comment:
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
-      - run: echo "${GITHUB_HEAD_REF}"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go test go/excellent/*.go
