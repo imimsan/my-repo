@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ['go/**/*.go']
 permissions:
-  pull_requests: write
+  pull-requests: write
   contents: read
 jobs:
   test:
@@ -20,7 +20,7 @@ jobs:
 
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr comment ${GITHUB_HEAD_REF} --body "Go Version : ${VERSION}"
+        run: gh pr comment ${GITHUB_HEAD_REF} --body "Go Version ： ${VERSION}"
       
       - uses: actions/setup-go@v5
         with:
