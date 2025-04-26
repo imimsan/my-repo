@@ -2,6 +2,9 @@ name: Test
 on:
   pull_request:
     paths: ['go/**/*.go']
+permissions:
+  pull_requests: write
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
