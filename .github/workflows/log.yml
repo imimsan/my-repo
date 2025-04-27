@@ -1,9 +1,10 @@
 name: Multi-dimension matrix
 on: push
-  jobs:
-    print:
-      strategy:
-        matrix: [ubuntu-latest, maxos-latest]
+jobs:
+  print:
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, maxos-latest]
         version: [18, 20]
     runs-on: ${{ matrix.os }}
     steps:
