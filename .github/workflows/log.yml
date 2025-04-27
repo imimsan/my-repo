@@ -1,14 +1,9 @@
-name: Log group
+name: Annotation
 on: push
 jobs:
   log:
     runs-on: ubuntu-latest
-    env:
-      PASSWORD: SupeorSecretValue
     steps:
-      - run: |
-          echo "::group::SHow environment variables"
-          echo "This is debug log."
-          echo "endgroup"
-      - run: echo "::add-mask::${PASSWORD}"
-      - run: echo "${PASSWORD}"
+      - run: echo "::error::This is an error"
+      - run: echo "::warning::This is a warning"
+      - run: echo "::notice::This is a notice"
