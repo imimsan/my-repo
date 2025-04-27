@@ -3,8 +3,12 @@ on: push
 jobs:
   log:
     runs-on: ubuntu-latest
+    env:
+      PASSWORD: SupeorSecretValue
     steps:
       - run: |
           echo "::group::SHow environment variables"
-          printenv
+          echo "This is debug log."
           echo "endgroup"
+      - run: echo "::add-mask::${PASSWORD}"
+      - run: echo "${PASSWORD}"
