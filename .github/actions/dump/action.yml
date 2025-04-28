@@ -18,8 +18,8 @@ runs:
       shell: bash
     - run: echo "${CONTEXT}"
       if: ${{ inputs.enable-context == 'true'}}
-        env:
-          CONTEXT: ${{ toJSON(github) }}
+      env:
+        CONTEXT: ${{ toJSON(github) }}
         shell: bash
     - id: current
       run: echo "echo=$(date)" >> ${GITHUB_OUTPUT}
